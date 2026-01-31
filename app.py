@@ -15,7 +15,8 @@ from langgraph.graph import StateGraph
 # Environment setup
 # ---------------------------------------------------------------------------
 load_dotenv()
-HF_TOKEN = os.getenv("hf_token")
+HF_TOKEN = st.secrets["hf_token"]
+
 
 # ---------------------------------------------------------------------------
 # Workflow state definition
@@ -84,3 +85,4 @@ if st.button("Generate Code"):
         exec(code, globals())
     except Exception as e:
         st.error(f"Error running generated code: {e}")
+
