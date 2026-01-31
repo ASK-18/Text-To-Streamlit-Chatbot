@@ -69,7 +69,7 @@ if st.button("Generate Code"):
     )
 
     # Hugging Face LLM
-    llm = ChatHuggingFace(llm=HuggingFaceEndpoint(repo_id="openai/gpt-oss-120b"))
+    llm = ChatHuggingFace(llm=HuggingFaceEndpoint(repo_id="openai/gpt-oss-120b",huggingfacehub_api_token=HF_TOKEN))
     parser = StrOutputParser()
     chain = template | llm | parser
 
@@ -85,4 +85,5 @@ if st.button("Generate Code"):
         exec(code, globals())
     except Exception as e:
         st.error(f"Error running generated code: {e}")
+
 
